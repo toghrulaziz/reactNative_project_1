@@ -1,9 +1,11 @@
 import { NavigationContainer } from '@react-navigation/native';
 import TabStack from './TabStack';
 import AuthStack from './AuthStack';
+import { useMMKVString } from 'react-native-mmkv';
 
 const Navigation = () => {
-  const isAuthenticated = false;
+  //const [accessToken, setAccessToken] = useMMKVString('accessToken');
+  const isAuthenticated = true;
 
   const linking = {
     prefixes: ['awesomeproject://'],
@@ -35,6 +37,7 @@ const Navigation = () => {
 
   return (
     <NavigationContainer linking={linking}>
+      {/* {accessToken ? <TabStack /> : <AuthStack />} */}
       {isAuthenticated ? <TabStack /> : <AuthStack />}
     </NavigationContainer>
   )

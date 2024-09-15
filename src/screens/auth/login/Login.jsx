@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Input from '../components/Input';
 import PasswordInput from '../components/PasswordInput';
+import { storage } from '@utils/MMKVStorage';
 
 
 const Login = () => {
@@ -16,7 +17,7 @@ const Login = () => {
   const navigation = useNavigation();
 
   const submitData = () => {
-    console.log(formData);
+    storage.set('loginInfo', JSON.stringify(formData));
   };
 
   const handleInputChange = (inputName, inputValue) => {

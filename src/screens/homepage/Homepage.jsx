@@ -4,11 +4,14 @@ import Layout from '@common/Layout';
 import InfoCard from './components/InfoCard';
 import { FlatList } from 'react-native';
 import NoData from './components/NoData';
+import { storage } from '@utils/MMKVStorage';
 
 const Homepage = () => {
     // const [count, setCount] = useState(0);
     // const increment = () => setCount(count + 1);
     // const decrement = () => setCount(count - 1);
+
+    const loginInfo = storage.getString('loginInfo');
 
     const [data, setData] = useState([]);
 
@@ -54,6 +57,7 @@ const Homepage = () => {
             {/* {data.map(item => (
                 <InfoCard key={item.id} cardItem={item} />
             ))} */}
+            <StyledText>{loginInfo}</StyledText>
 
             <FlatList
                 contentContainerStyle={{ paddingHorizontal: 8 , paddingVertical: 10}}
